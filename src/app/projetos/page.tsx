@@ -9,9 +9,9 @@ export default function Projetos() {
             <div
                 className="flex justify-around items-center">
                 <h2 className="text-3xl font-bold mb-6">Meus Projetos</h2>
-                <button
-                    className="bg-rose-300 rounded-2xl p-4 mb-5 cursor-pointer hover:bg-rose-600 transition"><Link href="/">Página inicial</Link></button>
-
+                <Link href="/" className="bg-rose-300 rounded-2xl p-4 mb-5 cursor-pointer hover:bg-rose-600 transition text-center">
+                    Página inicial
+                </Link>
             </div>
             <div>
 
@@ -35,6 +35,38 @@ export default function Projetos() {
                                     </div>
                                 ))}
                             </div>
+                            <p><strong>Backend:</strong></p>
+                            <div className="flex gap-5  ">
+                                {projeto.backend && (
+                                    <>
+                                        {projeto.backend.map(back => (
+                                            <div key={back.nome}>
+                                                <Image
+                                                    className="transition-transform hover:scale-110"
+                                                    src={back.src}
+                                                    title={back.nome}
+                                                    alt={back.nome}
+                                                    width={40}
+                                                    height={40
+                                                    } />
+                                            </div>
+                                        ))}
+                                    </>
+                                )}
+                            </div>
+                            <strong>Database:</strong>
+                            {projeto.dataBase && (
+                                <>
+                                    <Image
+                                        className="transition-transform hover:scale-110"
+                                        src={projeto.dataBase.src}
+                                        title={projeto.dataBase.nome}
+                                        alt={projeto.dataBase.nome}
+                                        width={40}
+                                        height={40
+                                        } />
+                                </>
+                            )}
                             <video
                                 src={projeto.video.src}
                                 autoPlay
@@ -43,7 +75,6 @@ export default function Projetos() {
                                 loop
                                 className="border mt-4 rounded-lg max-w-full h-auto m-2 p-2"
                             />
-
                             <a
                                 href={projeto.link}
                                 target="_blank"
@@ -52,9 +83,12 @@ export default function Projetos() {
                                 Site
                             </a>
                         </li>
-
                     ))}
                 </ul>
+            </div>
+            <div className="border p-4 rounded flex flex-col gap-2">
+                <h2 className="border-b-2">Dashboard de Vendas - Next.js + Recharts</h2>
+                <p>Este projeto é um dashboard interativo de vendas desenvolvido com Next.js e Recharts, ideal para visualização de dados com gráficos, filtros e indicadores de desempenho.</p>
             </div>
         </main>
     );
