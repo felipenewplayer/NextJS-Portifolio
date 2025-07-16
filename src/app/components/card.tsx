@@ -45,8 +45,9 @@ export default function Card() {
                                     <Image src={projeto.dataBase.src} alt={projeto.dataBase.nome} width={40} height={40} />
                                 </div>
                             )}
-
-                            <video src={projeto.video.src} autoPlay muted controls loop className="mt-4 rounded-lg w-full" />
+                            {projeto.video && (
+                                <video src={projeto.video.src} autoPlay muted controls loop className="mt-4 rounded-lg w-full" />
+                            )}
 
                             <a href={projeto.link} target="_blank" className="mt-4 inline-block bg-lime-600 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded">
                                 Acessar Projeto
